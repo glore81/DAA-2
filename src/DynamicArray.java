@@ -75,8 +75,8 @@ public class DynamicArray {
 
         private void ensureCapacity(int capacity){
             if (capacity > arr.length){
-                int newCapacaity = Math.max(arr.length * 2, DEFAULT_CAPACITY);
-                int[] newArray = new int[newCapacaity];
+                int newCapacity = Math.max(arr.length * 2, DEFAULT_CAPACITY);
+                int[] newArray = new int[newCapacity];
 
                 for(int i = 0; i < size; i++){
                     newArray[i] = arr[i];
