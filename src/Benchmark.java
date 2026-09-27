@@ -124,6 +124,7 @@ public class Benchmark {
         Random rand = new Random(SEED);
 
         for (int n : N_VALUES) {
+            int removalsToPerform = Math.min(n,m);
             for (String ds : new String[]{"Array", "List"}) {
                 long timeInsert0 = 0, moveInsert0 = 0, accessInsert0 = 0;
                 long timeRemove0 = 0, moveRemove0 = 0, accessRemove0 = 0;
@@ -172,7 +173,7 @@ public class Benchmark {
                     else list.resetMetrics();
 
                     start = System.nanoTime();
-                    for(int i = 0; i < m; i++){
+                    for(int i = 0; i < removalsToPerform; i++){
                         if(ds.equals("Array")) arr.remove(0);
                         else list.remove(0);
                     }
@@ -224,7 +225,7 @@ public class Benchmark {
                         list.resetMetrics();
                     }
                     start = System.nanoTime();
-                    for(int i = 0; i < m; i++){
+                    for(int i = 0; i < removalsToPerform; i++){
                         int mid = ds.equals("Array") ? arr.size()/2 : list.size()/2;
                         if(ds.equals("Array")){
                             arr.remove(mid);
